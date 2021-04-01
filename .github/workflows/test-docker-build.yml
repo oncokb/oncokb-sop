@@ -9,6 +9,6 @@ jobs:
       - name: Build Docker image
         uses: docker/build-push-action@v1.0.1
         with:
-          repository: cbioportal/oncokb-sop
+          repository: oncokb/oncokb-sop
           # don't push, since this is a test
           push: false
