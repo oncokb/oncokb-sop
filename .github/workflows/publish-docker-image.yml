@@ -14,6 +14,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: cbioportal/oncokb-sop
+          repository: oncokb/oncokb-sop
           tag_with_ref: true
-          push: ${{ startsWith(github.ref, 'refs/tags/') }}
+          push: ${{ startsWith(github.ref, 'refs/tags/v') }}
