@@ -12,3 +12,4 @@ jobs:
           repository: oncokb/oncokb-sop
           # don't push, since this is a test
           push: false
+          tags: ${{ github.event.release.tag_name:1 }}
