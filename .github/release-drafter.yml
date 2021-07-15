@@ -7,4 +7,4 @@ template: |
 
   ## 🕵️‍♀️ Full commit logs
 
-  - https://github.com/genome-nexus/genome-nexus/compare/$PREVIOUS_TAG...v$NEXT_PATCH_VERSION
+  - https://github.com/oncokb/oncokb-sop/compare/$PREVIOUS_TAG...v$NEXT_PATCH_VERSION
