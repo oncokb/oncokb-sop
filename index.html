@@ -23,14 +23,15 @@
 </head>
 <body>
 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="previousVersionDropdown" data-bs-toggle="dropdown"
+    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="previousVersionDropdown" data-bs-toggle="dropdown"
+            style="background-color: #0968c3; border-color: #0968c3"
             aria-expanded="false">
-        Choose other versions (Current: <span id="current-version-span"></span>)
+        <span id="current-version-span"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="previousVersionDropdown">
-        <li><a class="dropdown-item" href="#" value="v2.1">v2.1</a></li>
-        <li><a class="dropdown-item" href="#" value="v2">v2</a></li>
-        <li><a class="dropdown-item" href="#" value="v1.1">v1.1</a></li>
+        <li><a class="dropdown-item" href="#" value="v2.1">Version 2.1</a></li>
+        <li><a class="dropdown-item" href="#" value="v2">Version 2</a></li>
+        <li><a class="dropdown-item" href="#" value="v1.1">Version 1.1</a></li>
     </ul>
 </div>
 <div id="adobe-dc-view"></div>
@@ -63,7 +64,7 @@
 
     // show PDF
     document.addEventListener("adobe_dc_view_sdk.ready", function () {
-        $('#current-version-span').text(version);
+        $('#current-version-span').text('Version ' + version.slice(1));
         const adobeDCView = new AdobeDC.View({clientId: "661c8957aa9e4b38be3467e78a6683d7", divId: "adobe-dc-view"});
         adobeDCView.previewFile({
             content: {location: {url: sopFileName[version]}},
