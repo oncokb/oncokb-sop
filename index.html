@@ -36,7 +36,7 @@
     </ul>
 </div>
 <div id="adobe-dc-view"></div>
-<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+<script src="https://documentcloud.adobe.com/view-sdk/viewer.js"></script>
 <script type="text/javascript">
     // register dropdown click events
     $(".dropdown-item").click(function (event) {
@@ -67,7 +67,7 @@
     // show PDF
     document.addEventListener("adobe_dc_view_sdk.ready", function () {
         $('#current-version-span').text('Version ' + version.slice(1));
-        const adobeDCView = new AdobeDC.View({clientId: "661c8957aa9e4b38be3467e78a6683d7", divId: "adobe-dc-view"});
+        const adobeDCView = new AdobeDC.View({clientId: "021af7308f8f45e486c2e021a38de8d8", divId: "adobe-dc-view"});
         adobeDCView.previewFile({
             content: {location: {url: sopFileName[version]}},
             metaData: {fileName: sopFileName[version]}
