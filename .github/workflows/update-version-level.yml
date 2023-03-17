@@ -18,14 +18,22 @@ jobs:
           git pull
           VERSION_LEVEL=$(cat .version-level | tr "[:upper:]" "[:lower:]")
 
+          RELEASE_DRAFTER_MAJOR='NEXT_MAJOR_VERSION'
           RELEASE_DRAFTER_MINOR='NEXT_MINOR_VERSION'
           RELEASE_DRAFTER_PATCH='NEXT_PATCH_VERSION'
 
+          if [[ $VERSION_LEVEL == 'major' ]]; then
+          sed -i "s/$RELEASE_DRAFTER_PATCH/$RELEASE_DRAFTER_MAJOR/gi" .github/release-drafter.yml
+          sed -i "s/$RELEASE_DRAFTER_MINOR/$RELEASE_DRAFTER_MAJOR/gi" .github/release-drafter.yml
+          fi
+  
           if [[ $VERSION_LEVEL == 'minor' ]]; then
+          sed -i "s/$RELEASE_DRAFTER_MAJOR/$RELEASE_DRAFTER_MINOR/gi" .github/release-drafter.yml
           sed -i "s/$RELEASE_DRAFTER_PATCH/$RELEASE_DRAFTER_MINOR/gi" .github/release-drafter.yml
           fi
 
           if [[ $VERSION_LEVEL == 'patch' ]]; then
+          sed -i "s/$RELEASE_DRAFTER_MAJOR/$RELEASE_DRAFTER_PATCH/gi" .github/release-drafter.yml
           sed -i "s/$RELEASE_DRAFTER_MINOR/$RELEASE_DRAFTER_PATCH/gi" .github/release-drafter.yml
           fi
 
