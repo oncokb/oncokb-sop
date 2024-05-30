@@ -29,6 +29,7 @@
         <span id="current-version-span"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="previousVersionDropdown">
+        <li><a class="dropdown-item" href="#" value="v4">Version 4</a></li>
         <li><a class="dropdown-item" href="#" value="v3.1">Version 3.1</a></li>
         <li><a class="dropdown-item" href="#" value="v3">Version 3</a></li>
         <li><a class="dropdown-item" href="#" value="v2.2">Version 2.2</a></li>
@@ -46,7 +47,7 @@
     })
 
     // get the version from url
-    let version = 'v3.1';
+    let version = 'v4';
     if (window.location.search && window.location.search.length > 1) {
         const versionParams = window.location.search.slice(1).split("&").filter(function (item) {
             return item.startsWith("version=")
@@ -60,6 +61,7 @@
     }
 
     const sopFileName = {
+        'v4': 'OncoKB_Curation_Standard_Operating_Procedure_v4.pdf',
         'v3.1': 'OncoKB_Curation_Standard_Operating_Procedure_v3_1.pdf',
         'v3': 'OncoKB_Curation_Standard_Operating_Procedure_v3.pdf',
         'v3.0': 'OncoKB_Curation_Standard_Operating_Procedure_v3.pdf',
