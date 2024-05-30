@@ -1,5 +1,5 @@
-name-template: 'v$NEXT_MINOR_VERSION'
-tag-template: 'v$NEXT_MINOR_VERSION'
+name-template: 'v$NEXT_MAJOR_VERSION'
+tag-template: 'v$NEXT_MAJOR_VERSION'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
   ## Changes
@@ -7,4 +7,4 @@ template: |
 
   ## 🕵️‍♀️ Full commit logs
 
-  - https://github.com/oncokb/oncokb-sop/compare/$PREVIOUS_TAG...v$NEXT_MINOR_VERSION
+  - https://github.com/oncokb/oncokb-sop/compare/$PREVIOUS_TAG...v$NEXT_MAJOR_VERSION
