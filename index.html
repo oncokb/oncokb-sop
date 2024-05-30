@@ -29,12 +29,12 @@
         <span id="current-version-span"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="previousVersionDropdown">
-        <li><a class="dropdown-item" href="#" value="v4">Version 4</a></li>
+        <li><a class="dropdown-item" href="#" value="v4.0">Version 4.0</a></li>
         <li><a class="dropdown-item" href="#" value="v3.1">Version 3.1</a></li>
-        <li><a class="dropdown-item" href="#" value="v3">Version 3</a></li>
+        <li><a class="dropdown-item" href="#" value="v3.0">Version 3.0</a></li>
         <li><a class="dropdown-item" href="#" value="v2.2">Version 2.2</a></li>
         <li><a class="dropdown-item" href="#" value="v2.1">Version 2.1</a></li>
-        <li><a class="dropdown-item" href="#" value="v2">Version 2</a></li>
+        <li><a class="dropdown-item" href="#" value="v2.0">Version 2.0</a></li>
         <li><a class="dropdown-item" href="#" value="v1.1">Version 1.1</a></li>
     </ul>
 </div>
@@ -64,21 +64,24 @@
         'v4': 'OncoKB_Curation_Standard_Operating_Procedure_v4.pdf',
         'v3.1': 'OncoKB_Curation_Standard_Operating_Procedure_v3_1.pdf',
         'v3': 'OncoKB_Curation_Standard_Operating_Procedure_v3.pdf',
-        'v3.0': 'OncoKB_Curation_Standard_Operating_Procedure_v3.pdf',
         'v2.2': 'OncoKB_Curation_Standard_Operating_Procedure_v2_2.pdf',
         'v2.1': 'OncoKB_Curation_Standard_Operating_Procedure_v2_1.pdf',
         'v2': 'OncoKB_Curation_Standard_Operating_Procedure_v2.pdf',
-        'v2.0': 'OncoKB_Curation_Standard_Operating_Procedure_v2.pdf',
         'v1.1': 'OncoKB_Curation_Standard_Operating_Protocol_v1_1.pdf',
     };
 
     // show PDF
     document.addEventListener("adobe_dc_view_sdk.ready", function () {
         $('#current-version-span').text('Version ' + version.slice(1));
+
+        let fileNameKey = version;
+        if (version.endsWith('.0')) {
+            fileNameKey = version.substring(0, version.lastIndexOf('.0'));
+        }
         const adobeDCView = new AdobeDC.View({clientId: "021af7308f8f45e486c2e021a38de8d8", divId: "adobe-dc-view"});
         adobeDCView.previewFile({
-            content: {location: {url: sopFileName[version]}},
-            metaData: {fileName: sopFileName[version]}
+            content: {location: {url: sopFileName[fileNameKey]}},
+            metaData: {fileName: sopFileName[fileNameKey]}
         }, {defaultViewMode: "FIT_PAGE", dockPageControls: false});
     });
 </script>
