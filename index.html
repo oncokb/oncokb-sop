@@ -1,91 +1,80 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" style="width:100%; height:100%;">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" style="width: 100%; height: 100%">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>OncoKB Curation Standard Operating Procedure</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    <script
-            src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-            crossorigin="anonymous"></script>
-    <style type="text/css">
-        .dropdown {
-            display: flex;
-            justify-content: flex-end;
-            margin: 10px;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
-<div class="dropdown">
-    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="previousVersionDropdown" data-bs-toggle="dropdown"
-            style="background-color: #0968c3; border-color: #0968c3"
-            aria-expanded="false">
-        <span id="current-version-span"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="previousVersionDropdown">
-        <li><a class="dropdown-item" href="#" value="v4.1">Version 4.1</a></li>
-        <li><a class="dropdown-item" href="#" value="v4.0">Version 4.0</a></li>
-        <li><a class="dropdown-item" href="#" value="v3.1">Version 3.1</a></li>
-        <li><a class="dropdown-item" href="#" value="v3.0">Version 3.0</a></li>
-        <li><a class="dropdown-item" href="#" value="v2.2">Version 2.2</a></li>
-        <li><a class="dropdown-item" href="#" value="v2.1">Version 2.1</a></li>
-        <li><a class="dropdown-item" href="#" value="v2.0">Version 2.0</a></li>
-        <li><a class="dropdown-item" href="#" value="v1.1">Version 1.1</a></li>
-    </ul>
-</div>
-<div id="adobe-dc-view"></div>
-<script src="https://documentcloud.adobe.com/view-sdk/viewer.js"></script>
-<script type="text/javascript">
-    // register dropdown click events
-    $(".dropdown-item").click(function (event) {
-        window.location.href = window.location.origin + window.location.pathname + "?version=" + $(this).attr("value");
-    })
-
-    // get the version from url
-    let version = 'v4.1';
-    if (window.location.search && window.location.search.length > 1) {
-        const versionParams = window.location.search.slice(1).split("&").filter(function (item) {
-            return item.startsWith("version=")
-        });
-        if (versionParams.length > 0) {
-            const tempVersion = versionParams[0].split("=");
-            if (tempVersion.length === 2) {
-                version = tempVersion[1];
-            }
-        }
-    }
-
-    const sopFileName = {
-        'v4.1': 'OncoKB_Curation_Standard_Operating_Procedure_v4_1.pdf',
-        'v4': 'OncoKB_Curation_Standard_Operating_Procedure_v4.pdf',
-        'v3.1': 'OncoKB_Curation_Standard_Operating_Procedure_v3_1.pdf',
-        'v3': 'OncoKB_Curation_Standard_Operating_Procedure_v3.pdf',
-        'v2.2': 'OncoKB_Curation_Standard_Operating_Procedure_v2_2.pdf',
-        'v2.1': 'OncoKB_Curation_Standard_Operating_Procedure_v2_1.pdf',
-        'v2': 'OncoKB_Curation_Standard_Operating_Procedure_v2.pdf',
-        'v1.1': 'OncoKB_Curation_Standard_Operating_Protocol_v1_1.pdf',
-    };
-
-    // show PDF
-    document.addEventListener("adobe_dc_view_sdk.ready", function () {
-        $('#current-version-span').text('Version ' + version.slice(1));
-
-        let fileNameKey = version;
-        if (version.endsWith('.0')) {
-            fileNameKey = version.substring(0, version.lastIndexOf('.0'));
-        }
-        const adobeDCView = new AdobeDC.View({clientId: "021af7308f8f45e486c2e021a38de8d8", divId: "adobe-dc-view"});
-        adobeDCView.previewFile({
-            content: {location: {url: sopFileName[fileNameKey]}},
-            metaData: {fileName: sopFileName[fileNameKey]}
-        }, {defaultViewMode: "FIT_PAGE", dockPageControls: false});
-    });
-</script>
-</body>
+    <link rel="stylesheet" href="/css/rest.css?d=03062025" />
+    <link rel="stylesheet" href="/css/styles.css?d=03062025" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/favicon.svg?d=03062025"
+    />
+  </head>
+  <body>
+    <header>
+      <img id="header-logo" src="/images/oncokb-white.svg" alt="OncoKB Logo" />
+    </header>
+    <main>
+      <h1>SOP's</h1>
+      <ul>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Procedure_v4_1.pdf"
+            >Version 4.1</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Procedure_v4.pdf"
+            >Version 4.0</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Procedure_v3_1.pdf"
+            >Version 3.1</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Procedure_v3.pdf"
+            >Version 3.0</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Procedure_v2_2.pdf"
+            >Version 2.2</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Procedure_v2_1.pdf"
+            >Version 2.1</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Procedure_v2.pdf"
+            >Version 2.0</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="/sop/OncoKB_Curation_Standard_Operating_Protocol_v1_1.pdf"
+            >Version 1.1</a
+          >
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>

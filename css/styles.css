@@ -1,0 +1,30 @@
+:root {
+  --oncokb-blue: #0968c3;
+}
+header {
+  background-color: var(--oncokb-blue);
+  padding: 15px;
+}
+
+#header-logo {
+  height: 2rem;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 80ch;
+}
+
+main h1 {
+  font-size: 3rem;
+}
+
+a {
+  color: var(--oncokb-blue);
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
+    color: purple;
+  }
+}
