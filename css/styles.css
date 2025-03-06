@@ -67,7 +67,7 @@ a {
   }
 }
 
-.content-wrapper {
+#content-wrapper {
   /* Might need both because dvh isn't completely supported */
   min-height: 100vh;
   /* Better for mobile */
@@ -82,6 +82,14 @@ a {
     1fr
     /* auto makes the header as small as it can be */
     auto;
+}
+
+#content-wrapper.content-only {
+  & header,
+  footer {
+    display: none;
+  }
+  grid-template-rows: 1fr;
 }
 
 iframe {
