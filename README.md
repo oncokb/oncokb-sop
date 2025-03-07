@@ -26,3 +26,9 @@ python3 -m http.server 4321
 ```sh
 docker build -t oncokb/oncokb-sop:0.0.1 .
 ```
+
+### Run Docker Image
+
+```sh
+docker run --rm -p 4321:80 --name oncokb-sop oncokb/oncokb-sop:0.0.1
+```
