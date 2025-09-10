@@ -24,7 +24,7 @@ go run main.go
 ### Build Docker Image
 
 ```sh
-docker build --platform=linux/amd64 -t mskcc/oncokb-sop:x.x.x .
+docker build --platform=linux/arm64 -t mskcc/oncokb-sop:x.x.x .
 ```
 
 ### Run Docker Image
