@@ -24,19 +24,19 @@ go run main.go
 ### Build Docker Image
 
 ```sh
-docker build --platform=linux/amd64 -t oncokb/oncokb-sop:x.x.x .
+docker build --platform=linux/amd64 -t mskcc/oncokb-sop:x.x.x .
 ```
 
 ### Run Docker Image
 
 ```sh
-docker run --rm -p 4321:4321 --name oncokb-sop oncokb/oncokb-sop:x.x.x
+docker run --rm -p 4321:4321 --name oncokb-sop mskcc/oncokb-sop:x.x.x
 ```
 
 ### Push Docker Image
 
 ```sh
-docker push oncokb/oncokb-sop:x.x.x
+docker push mskcc/oncokb-sop:x.x.x
 ```
 
 ## Add New SOP Check List
