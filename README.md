@@ -44,7 +44,7 @@ docker push mskcc/oncokb-sop:x.x.x
 - [ ] Add SOP PDF to the `/static/sop` folder
   - [ ] Name the PDF file as `OncoKB_Curation_Standard_Operating_Procedure_vX_X.pdf`
         where `X.X` is the version number of the SOP.
-- [ ] Run `scripts/set-pdf-titles.sh` to update PDF titles in PDF's metadata.
+- [ ] Run `scripts/set-pdf-titles.sh` to update the PDF title in the PDF's metadata.
 - [ ] Add HTML to `/static/index.html`
 
   ```html
