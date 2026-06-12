@@ -1,0 +1,13 @@
+name: Check PR Label
+
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+
+jobs:
+  check-label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate required label
+        uses: oncokb/github-actions/check-pr-label-action@main
