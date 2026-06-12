@@ -35,9 +35,9 @@ docker run --rm -p 4321:4321 --name oncokb-sop mskcc/oncokb-sop:x.x.x
 
 ### Push Docker Image
 
-```sh
-docker push mskcc/oncokb-sop:x.x.x
-```
+> [!WARNING]
+> No longer need to this. The Release logic should be fix now. Please publish
+> the draft release instead.
 
 ## Add New SOP Check List
 
