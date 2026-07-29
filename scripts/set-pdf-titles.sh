@@ -3,15 +3,14 @@
 set -euo pipefail
 
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-sop_dir="$script_dir/../static/sop"
 
 if ! command -v exiftool >/dev/null 2>&1; then
   echo "exiftool is required. Install it with: brew install exiftool" >&2
   exit 1
 fi
 
-if [[ ! -d "$sop_dir" ]]; then
-  echo "SOP directory not found: $sop_dir" >&2
+if [[ "$#" -eq 0 ]]; then
+  echo "Usage: $0 <pdf-path> [pdf-path ...]" >&2
   exit 1
 fi
 
@@ -21,6 +20,16 @@ process_pdf() {
   local pdf_path=$1
   local filename title
 
+  if [[ ! -f "$pdf_path" ]]; then
+    echo "PDF not found: $pdf_path" >&2
+    exit 1
+  fi
+
+  if [[ ! "$pdf_path" =~ \.[Pp][Dd][Ff]$ ]]; then
+    echo "Not a PDF file: $pdf_path" >&2
+    exit 1
+  fi
+
   filename=$(basename "$pdf_path")
   title=${filename%.[Pp][Dd][Ff]}
   pdf_count=$((pdf_count + 1))
@@ -29,10 +38,10 @@ process_pdf() {
   printf 'Set title: %s -> %s\n' "$pdf_path" "$title"
 }
 
-while IFS= read -r -d '' pdf_path; do
+for pdf_path in "$@"; do
   process_pdf "$pdf_path"
-done < <(find "$sop_dir" -type f -iname '*.pdf' -print0)
+done
 
 if [[ "$pdf_count" -eq 0 ]]; then
-  echo "No PDFs found." >&2
+  echo "No PDFs processed." >&2
 fi
