@@ -33,6 +33,24 @@ docker build --platform=linux/arm64 -t mskcc/oncokb-sop:x.x.x .
 docker run --rm -p 4321:4321 --name oncokb-sop mskcc/oncokb-sop:x.x.x
 ```
 
+### Run with Docker Compose
+
+> [!WARNING]
+> If the container exits immediately with `exec ./server: no such file or directory`,
+> the binary in the image is not runnable in the current runtime base image.
+> Update the `Dockerfile` (for example, build a static binary for `scratch` or use
+> a runtime image that includes required libraries).
+
+```sh
+docker compose up --build
+```
+
+Stop and remove resources:
+
+```sh
+docker compose down
+```
+
 ### Push Docker Image
 
 > [!WARNING]
