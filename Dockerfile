@@ -5,15 +5,13 @@ WORKDIR /app
 COPY main.go ./
 COPY static ./static
 
-RUN go build -o server main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o /server main.go
 
-FROM debian:bookworm-slim
+FROM scratch
 
-WORKDIR /app
-COPY --from=builder /app/server .
-COPY --from=builder /app/static ./static
+COPY --from=builder /server /server
+COPY --from=builder /app/static /static
 
 EXPOSE 4321
 
-CMD ["./server"]
-
+CMD ["/server"]

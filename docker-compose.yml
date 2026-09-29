@@ -1,0 +1,9 @@
+services:
+  oncokb-sop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oncokb-sop-local:dev
+    container_name: oncokb-sop-local
+    ports:
+      - "4321:4321"
